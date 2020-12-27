@@ -28,19 +28,20 @@ $ yarn add proxyjs
 
 The best way to load Proxy.js is via `require`:
 ```
-const {runTest} = require('proxyjs');
+const {testProxy} = require('proxyjs');
 ```
 
 You can then run a test:
 ```
-runTest(proxy, endpoint, timeout);
-```
+// will return 200 if the test passed and an error if the test failed
 
-Example:
-```
-// will return 'OK' if the proxy tested good and 'Failed' if the proxy fails.
-
-runTest('localhost:8080', 'https://example.com', 5000);
+testProxy('localhost:8080', 'https://example.com', 5000)
+  .then(result => {
+    console.log(result) // > 200
+  })
+  .catch(err -> {
+    console.log(err) // error message
+  })
 ```
 The following code will test the proxy `localhost:8080` on the endpoint `https://example.com`. If a response isn't received in 5 seconds, the test will abort.
 
