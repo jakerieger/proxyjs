@@ -14,7 +14,7 @@
   "main": "./lib/proxy.js",
   "author": "Jake Rieger",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "abort-controller": "^3.0.0",
     "node-fetch": "^2.6.1",
     "tunnel": "^0.0.6"
