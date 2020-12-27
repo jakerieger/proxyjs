@@ -28,7 +28,7 @@ $ yarn add node-proxyjs
 
 The best way to load Proxy.js is via `require`:
 ```
-const {testProxy} = require('proxyjs');
+const {testProxy} = require('node-proxyjs');
 ```
 
 You can then run a test:
