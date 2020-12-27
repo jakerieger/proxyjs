@@ -18,11 +18,11 @@ Proxy.js is a Node library which provides a simple to use API for testing proxie
 
 Using NPM:
 ```
-$ npm install proxyjs
+$ npm install node-proxyjs
 ```
 Using Yarn:
 ```
-$ yarn add proxyjs
+$ yarn add node-proxyjs
 ```
 ### Usage
 
