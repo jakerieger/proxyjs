@@ -1,0 +1,13 @@
+{
+  "name": "proxyjs",
+  "version": "0.0.1",
+  "description": "A simple NPM package for testing proxies",
+  "main": "index.js",
+  "author": "Jake Rieger",
+  "license": "MIT",
+  "dependencies": {
+    "abort-controller": "^3.0.0",
+    "node-fetch": "^2.6.1",
+    "tunnel": "^0.0.6"
+  }
+}
