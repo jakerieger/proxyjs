@@ -11,10 +11,10 @@
   "directories": {
     "lib": "./lib"
   },
-  "main": "./index.js",
+  "main": "./lib/proxy.js",
   "author": "Jake Rieger",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "abort-controller": "^3.0.0",
     "node-fetch": "^2.6.1",
     "tunnel": "^0.0.6"
