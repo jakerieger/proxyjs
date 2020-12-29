@@ -1,6 +1,6 @@
 {
   "name": "node-proxyjs",
-  "version": "0.0.3b",
+  "version": "0.0.3c",
   "description": "A simple NPM package for testing proxies",
   "keywords": [
     "http",
