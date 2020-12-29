@@ -40,7 +40,7 @@ You can then run a test:
 ``` js
 // will return OK if the test passed, 'FAIL: statuscode' if the test failed with a status code above 300 and Error if the test failed due to an error.
 
-testProxy('localhost:8080', 'https://example.com', 5000, false)
+testProxy('localhost:8080', 'https://example.com', 5000)
   .then(result => {
     console.log(result) // > 'OK' or 'FAIL: statuscode'
   })
