@@ -38,11 +38,11 @@ const {testProxy} = require('node-proxyjs');
 
 You can then run a test:
 ``` js
-// will return 200 if the test passed and an error if the test failed
+// will return OK if the test passed, 'FAIL: statuscode' if the test failed with a status code above 300 and Error if the test failed due to an error.
 
 testProxy('localhost:8080', 'https://example.com', 5000, false)
   .then(result => {
-    console.log(result) // > 200
+    console.log(result) // > 'OK' or 'FAIL: statuscode'
   })
   .catch(err -> {
     console.log(err) // error message
