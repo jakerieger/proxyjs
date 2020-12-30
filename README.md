@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-Proxy.js is a Node library which provides a simple to use API for testing proxies.
+Proxy.js is a Node library which provides a simple to use API for testing proxies and creating proxy agents.
 </p>
 
 <p align="center">
@@ -38,59 +38,30 @@ const {testProxy} = require('node-proxyjs');
 
 You can then run a test:
 ``` js
-// will return OK if the test passed, 'FAIL: statuscode' if the test failed with a status code above 300 and Error if the test failed due to an error.
-
 testProxy('localhost:8080', 'https://example.com', 5000)
-  .then(result => {
-    console.log(result) // > 'OK' or 'FAIL: statuscode'
-  })
-  .catch(err -> {
-    console.log(err) // error message
-  })
+  .then(result => console.log(result))
+  .catch(error => (console.log(error))
 ```
-The following code will test the proxy `localhost:8080` on the endpoint `https://example.com`. If a response isn't received in 5 seconds, the test will abort.
+Will return:
+``` js
+{ status: 'OK', response: '500ms' } // Passed
+{ status: 'FAIL', response: '404' } // Failed
+{ status: 'ERROR', response: 'Timeout' } // Timed out
+```
+
+The following code will test the proxy `localhost:8080` on the endpoint `https://example.com`. If a response isn't received in 5 seconds, the test will abort and return an __ERROR__ response.
 
 ### User/Pass Proxies
 You can test proxies that are user/pass authenticated as well by simply passing `true` as the fourth parameter of `testProxy`.
 ``` js
 // tests a user/pass authenticated proxy
 testProxy('user:pass:localhost:8080', 'https://example.com', 5000, true)
-  .then(result => {
-    console.log(result)
-  })
-  .catch(err -> {
-    console.log(err)
-  })
+  .then(result => console.log(result))
+  .catch(error => console.log(error))
 ```
 
-### Multiple Tests
-You can also run multiple tests concurrently and then return the results in order when they've all finished.
-``` js
-const {testProxy} = require('node-proxyjs')
-
-function runTests() {
-  let promises = []
-
-  // will run 1000 tests concurrently and console.log() each result as it completes
-  for(let x = 0; x < 1000; x++) {
-    promises.push(testProxy('localhost:8080', 'http://example.com', 5000).then(val => {
-      console.log(val)
-    }).catch(err => {
-      console.log(err)
-    }))
-  }
-
-  return Promise.all(promises)
-}
-
-// will return all the results in order once they've all completed
-runTests().then(data => {
-  console.log(data)
-})
-```
-
-### Using a Custom Test Function
-If you just want to use your own testing function you can still create a tunneling agent with Proxy.js and pass that in the `agent` option in whatever request library you're using.
+### Using With HTTP/S Libraries
+If you just want to use your own testing function or simply use Proxy.js to create a proxy agent, you can still create a tunneling agent and pass that in the `agent` option in whatever request library you're using.
 ``` js
 // Example using Node's HTTP library
 const http = require('http')
@@ -108,4 +79,4 @@ http.get('http://example.com', {
 ## FAQ
 **Can I test user/pass proxies?**
 
-Yes. In version 0.0.3 you can now test user/pass authenticated proxies.
+As of version `0.0.3`, you can now test user/pass authenticated proxies.
