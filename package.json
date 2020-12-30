@@ -2,6 +2,8 @@
   "name": "node-proxyjs",
   "version": "0.0.3c",
   "description": "A simple NPM package for testing proxies",
+  "author": "Jake Rieger <contact.jakerieger@gmail.com>",
+  "repo": "https://github.com/jakerieger/proxyjs",
   "keywords": [
     "http",
     "https",
@@ -15,7 +17,6 @@
     "lib": "./lib"
   },
   "main": "./lib/proxy.js",
-  "author": "Jake Rieger",
   "license": "MIT",
   "dependencies": {
     "abort-controller": "^3.0.0",
