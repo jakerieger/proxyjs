@@ -4,7 +4,7 @@
 <img src="https://i.imgur.com/6Ne4V1K.png">
 <a href="#Installation">Getting Started</a> | 
 <a href="#Usage">Usage</a> |
-<a href="#FAQ">FAQ</a>
+<a href="#Changelog">Changelog</a>
 </p>
 
 <p align="center">
