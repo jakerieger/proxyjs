@@ -23,3 +23,5 @@ pnpm-debug.log*
 
 yarn.lock
 test.js
+
+dist
