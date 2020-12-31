@@ -33,7 +33,7 @@ $ yarn add node-proxyjs
 
 The best way to load Proxy.js is via `require`:
 ``` js
-const {testProxy} = require('node-proxyjs');
+const testProxy = require('node-proxyjs');
 ```
 
 You can then run a test:
@@ -67,7 +67,9 @@ If you just want to use your own testing function or simply use Proxy.js to crea
 const http = require('http')
 const ProxyAgent = require('node-proxyjs')
 
-var proxyAgent = new ProxyAgent('localhost:8080')
+var proxyAgent = new ProxyAgent('http://localhost:8080')
+// or for user/pass
+var proxyAgent = new ProxyAgent('http://user:pass@localhost:8080')
 
 http.get('http://example.com', {
   agent: proxyAgent
@@ -76,7 +78,6 @@ http.get('http://example.com', {
 })
 ```
 
-## FAQ
-**Can I test user/pass proxies?**
-
-As of version `0.0.3`, you can now test user/pass authenticated proxies.
+## Changelog
+- As of version `0.0.5`, Proxy.js has been rewritten in TypeScript.
+- As of version `0.0.3`, you can now test user/pass authenticated proxies.

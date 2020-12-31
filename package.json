@@ -1,6 +1,6 @@
 {
   "name": "node-proxyjs",
-  "version": "0.0.5",
+  "version": "0.0.5a",
   "description": "A simple NPM package for testing proxies",
   "author": "Jake Rieger <contact.jakerieger@gmail.com>",
   "repository": "https://github.com/jakerieger/proxyjs",
