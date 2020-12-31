@@ -40,7 +40,7 @@ You can then run a test:
 ``` js
 testProxy('localhost:8080', 'https://example.com', 5000)
   .then(result => console.log(result))
-  .catch(error => (console.log(error))
+  .catch(error => console.log(error))
 ```
 Will return:
 ``` js
@@ -52,25 +52,25 @@ Will return:
 The following code will test the proxy `localhost:8080` on the endpoint `https://example.com`. If a response isn't received in 5 seconds, the test will abort and return an __ERROR__ response.
 
 ### User/Pass Proxies
-You can test proxies that are user/pass authenticated as well by simply passing `true` as the fourth parameter of `testProxy`.
+You can test proxies that are user/pass authenticated as well.
 ``` js
 // tests a user/pass authenticated proxy
-testProxy('user:pass:localhost:8080', 'https://example.com', 5000, true)
+testProxy('localhost:8080:user:pass', 'https://example.com', 5000)
   .then(result => console.log(result))
   .catch(error => console.log(error))
 ```
 
 ### Using With HTTP/S Libraries
-If you just want to use your own testing function or simply use Proxy.js to create a proxy agent, you can still create a tunneling agent and pass that in the `agent` option in whatever request library you're using.
+If you just want to use your own testing function or simply use Proxy.js to create a proxy agent, you can still create a proxy agent and pass that in the `agent` option in whatever request library you're using.
 ``` js
 // Example using Node's HTTP library
 const http = require('http')
-const {TunnelAgent} = require('node-proxyjs')
+const ProxyAgent = require('node-proxyjs')
 
-var tunnelingAgent = TunnelAgent('localhost:8080', 'http://example.com')
+var proxyAgent = new ProxyAgent('localhost:8080')
 
 http.get('http://example.com', {
-  agent: tunnelingAgent
+  agent: proxyAgent
 }, res => {
   console.log(res.statusCode)
 })

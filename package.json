@@ -1,6 +1,6 @@
 {
   "name": "node-proxyjs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A simple NPM package for testing proxies",
   "author": "Jake Rieger <contact.jakerieger@gmail.com>",
   "repository": "https://github.com/jakerieger/proxyjs",
@@ -13,14 +13,27 @@
     "tunnel",
     "tunneling agent"
   ],
-  "directories": {
-    "lib": "./lib"
-  },
-  "main": "./lib/proxy.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index",
+  "main": "dist/index",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha --reporter spec"
+  },
   "dependencies": {
     "abort-controller": "^3.0.0",
-    "node-fetch": "^2.6.1",
-    "tunnel": "^0.0.6"
+    "agent-base": "^6.0.2",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.5",
+    "@types/node": "^14.14.17",
+    "@typescript-eslint/parser": "^4.11.1",
+    "eslint": "^7.16.0",
+    "mocha": "^8.2.1",
+    "typescript": "^4.1.3"
   }
 }
